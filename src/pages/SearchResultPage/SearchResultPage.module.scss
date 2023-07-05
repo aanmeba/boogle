@@ -1,5 +1,8 @@
+@use "../../styles/common/mixins";
+
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
+  @include mixins.flex-column(5rem);
+  // display: flex;
+  // flex-direction: column;
+  // gap: 5rem;
 }

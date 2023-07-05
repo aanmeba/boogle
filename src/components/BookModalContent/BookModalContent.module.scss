@@ -1,8 +1,11 @@
-.container {
-  display: flex;
-  flex-direction: column;
+@use "../../styles/common/mixins" as mixins;
 
-  gap: 2rem;
+.container {
+  @include mixins.flex-column(2rem);
+  // display: flex;
+  // flex-direction: column;
+
+  // gap: 2rem;
   width: 100%;
 
   overflow-y: scroll;
@@ -12,10 +15,12 @@
     gap: 2rem;
     // flex-wrap: wrap;
 
+    @include mixins.book_content(200px, 1.5rem);
+
     .pics {
-      margin: 0;
+      // margin: 0;
       &_img {
-        width: 200px;
+        // width: 200px;
 
         &_hidden {
           display: none;
@@ -23,12 +28,12 @@
       }
     }
     .details {
-      display: flex;
-      flex-direction: column;
+      // display: flex;
+      // flex-direction: column;
 
-      &_title {
-        font-size: 1.5rem;
-      }
+      // &_title {
+      //   font-size: 1.5rem;
+      // }
 
       &_subtitle {
         color: gray;
@@ -43,9 +48,10 @@
   }
 
   &_body {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    @include mixins.flex-column();
+    // display: flex;
+    // flex-direction: column;
+    // gap: 1rem;
 
     // overflow-y: scroll;
 

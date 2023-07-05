@@ -1,24 +1,15 @@
-import { addEllipsis, handleEscapedChars } from "../../helpers/helpers";
 import styles from "./BookDetails.module.scss";
 import StarIcon from "@mui/icons-material/Star";
 
 const BookDetails = ({ onClick, book }) => {
   const {
-    searchInfo: { textSnippet = "" } = {},
     volumeInfo: {
       authors,
       averageRating,
-      categories,
-      description,
       imageLinks: { thumbnail = "" } = {},
-      infoLink,
-      publisher,
-      publishedDate,
       title,
-      subtitle,
     },
   } = book;
-  const newDesc = handleEscapedChars(textSnippet);
 
   return (
     <article onClick={onClick} className={styles.container}>
@@ -47,9 +38,6 @@ const BookDetails = ({ onClick, book }) => {
         ) : (
           <p className={styles.details_rating}>No rating available</p>
         )}
-        {/* {textSnippet && (
-          <p className={styles.details_short}>{addEllipsis(newDesc, 60)}</p>
-        )} */}
       </div>
     </article>
   );
