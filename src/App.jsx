@@ -3,10 +3,11 @@ import SearchQueryContextProvider from "./context/SearchQueryContextProvider";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import styles from "./App.module.scss";
 
 function App() {
   return (
-    <>
+    <main className={styles.main}>
       <BrowserRouter>
         <SearchQueryContextProvider>
           <Routes>
@@ -16,7 +17,7 @@ function App() {
           </Routes>
         </SearchQueryContextProvider>
       </BrowserRouter>
-    </>
+    </main>
   );
 }
 

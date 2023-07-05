@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import BookDetails from "../BookDetails/BookDetails";
-import BookModal from "../BookModal/BookModal";
-import Modal from "../Modal/Modal";
-// import styles from "./BookCard.module.scss";
+import BookModalContent from "../BookModalContent/BookModalContent";
+import { Modal, ModalDialog } from "@mui/joy";
 
 const BookCard = ({ book }) => {
   const [isClicked, setIsClicked] = useState(false);
@@ -14,17 +13,29 @@ const BookCard = ({ book }) => {
     setIsOpen(!isOpen);
     console.log(isClicked);
   };
-  // useEffect(() => {}, [isOpen, isClicked]);
 
   // need to handle each el has value and then render them
   return (
     <>
-      {/* <BookDetails onClick={onClick} book={book} /> */}
-      {/* {isClicked && <BookModal book={book} isOpen={isOpen} />} */}
-      <button onClick={onClick}>modal click</button>
+      <BookDetails onClick={onClick} book={book} />
       {isClicked && (
-        <Modal isOpen={isOpen} onClick={onClick}>
-          <BookModal book={book} />
+        <Modal
+          open={isOpen}
+          onClose={onClick}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <ModalDialog
+            color="neutral"
+            layout="center"
+            size="md"
+            variant="outlined"
+          >
+            <BookModalContent book={book} />
+          </ModalDialog>
         </Modal>
       )}
     </>

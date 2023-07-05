@@ -1,5 +1,6 @@
 import { addEllipsis, handleEscapedChars } from "../../helpers/helpers";
-import styles from "../BookCard/BookCard.module.scss";
+import styles from "./BookDetails.module.scss";
+import StarIcon from "@mui/icons-material/Star";
 
 const BookDetails = ({ onClick, book }) => {
   const {
@@ -9,7 +10,7 @@ const BookDetails = ({ onClick, book }) => {
       averageRating,
       categories,
       description,
-      imageLinks: { thumbnail },
+      imageLinks: { thumbnail = "" } = {},
       infoLink,
       publisher,
       publishedDate,
@@ -22,8 +23,10 @@ const BookDetails = ({ onClick, book }) => {
   return (
     <article onClick={onClick} className={styles.container}>
       <figure className={styles.pics}>
-        {thumbnail && (
+        {thumbnail ? (
           <img className={styles.pics_img} src={thumbnail} alt={title} />
+        ) : (
+          <div className={styles.pics_img_placeholder}></div>
         )}
       </figure>
       <div className={styles.details}>
@@ -37,13 +40,16 @@ const BookDetails = ({ onClick, book }) => {
             <p className={styles.details_authors}>{authors[0]}</p>
           ))}
         {averageRating ? (
-          <p className={styles.details_rating}>⭐️ {averageRating}</p>
+          <div className={styles.details_rating}>
+            <StarIcon sx={{ color: "#ffea00" }} />
+            <p>{averageRating}</p>
+          </div>
         ) : (
           <p className={styles.details_rating}>No rating available</p>
         )}
-        {textSnippet && (
+        {/* {textSnippet && (
           <p className={styles.details_short}>{addEllipsis(newDesc, 60)}</p>
-        )}
+        )} */}
       </div>
     </article>
   );
