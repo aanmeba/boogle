@@ -1,20 +1,21 @@
-import { useState } from "react";
-import "./App.css";
-import SearchResultLoader from "./containers/SearchResultLoader/SearchResultLoader";
-import { searchBooks } from "./services/books-services";
-import SearchBar from "./components/SearchBar/SearchBar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SearchQueryContextProvider from "./context/SearchQueryContextProvider";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
-  const [query, setQuery] = useState("");
-  // searchBooks("harry potter").then((data) => console.log(data, "000000 "));
-
-  const handleSubmit = (data) => setQuery(data);
-
   return (
     <>
-      <h1>Boogle</h1>
-      <SearchBar handleSubmit={handleSubmit} />
-      <SearchResultLoader query={query} />
+      <BrowserRouter>
+        <SearchQueryContextProvider>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/results" element={<SearchResultPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </SearchQueryContextProvider>
+      </BrowserRouter>
     </>
   );
 }
