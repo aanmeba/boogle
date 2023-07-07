@@ -1,0 +1,14 @@
+.container {
+  &_body {
+    &_title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      a {
+        display: flex;
+        align-items: center;
+        color: black;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.details {
+  &_rating {
+    display: flex;
+    align-items: center;
+    color: lightseagreen;
+
+    &_num {
+      font-size: 0.9rem;
+    }
+  }
+}

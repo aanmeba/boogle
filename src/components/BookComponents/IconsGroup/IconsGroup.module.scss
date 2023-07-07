@@ -1,0 +1,15 @@
+.icons_group {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.6rem;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
