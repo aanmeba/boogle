@@ -1,0 +1,16 @@
+@use "../../styles/common/mixins";
+
+.container {
+  gap: 2rem;
+  column-count: 4;
+
+  @include mixins.medium {
+    column-count: 3;
+  }
+  @include mixins.small {
+    column-count: 2;
+  }
+  @include mixins.extra-small {
+    column-count: 1;
+  }
+}

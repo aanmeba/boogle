@@ -1,0 +1,41 @@
+.icons_group {
+  display: flex;
+  // gap: 1rem;
+  font-size: 0.6rem;
+  align-items: center;
+  width: 100%;
+  // justify-content: space-around;
+  overflow-x: scroll;
+  margin: 1rem 0;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  // min-width: 5rem;
+  height: 2.5rem;
+  flex-wrap: nowrap;
+  // border-right: 1px solid black;
+
+  &:nth-of-type(1) {
+    padding-right: 1rem;
+  }
+  &:nth-of-type(2),
+  &:nth-of-type(3) {
+    padding: 0 1rem;
+  }
+
+  &_pages {
+    font-size: 0.95rem;
+  }
+
+  // &_rating {
+  //   display: flex;
+  //   align-items: center;
+  //   &_num {
+  //     font-size: 0.95rem;
+  //   }
+  // }
+}

@@ -1,0 +1,18 @@
+@use "../../../styles/common/theme" as theme;
+
+.container {
+  &_body {
+    &_title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.3rem;
+      color: theme.$dark-navy-2;
+      a {
+        display: flex;
+        align-items: center;
+        color: theme.$dark-navy-2;
+      }
+    }
+  }
+}
