@@ -1,29 +1,47 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { searchBooks } from "../../services/books-services";
 import BookList from "../../components/BookList/BookList";
+import { SearchQueryContext } from "../../context/SearchQueryContextProvider";
+import Loading from "../../components/Loading/Loading";
+import SearchResult from "../../components/SearchResult/SearchResult";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import { BooksContext } from "../../context/BooksContext";
+// import BookContextProvider from "../../context/BookContextProvider";
 
-const SearchResultLoader = ({ query }) => {
-  const [books, setBooks] = useState(null);
-  const [loading, setLoading] = useState(true);
+const SearchResultLoader = () => {
+  const { query } = useContext(SearchQueryContext);
+  const { books, setBooks } = useContext(BooksContext);
+  // const [books, setBooks] = useState([]);
+
   const [error, setError] = useState(false);
+  const [fetchState, setFetchState] = useState("LOADING");
 
   useEffect(() => {
     if (query) {
       searchBooks(query)
-        .then((data) => setBooks(data))
-        .catch((err) => setError(err))
+        .then((data) => {
+          setBooks(data);
+          setFetchState("SUCCESS");
+        })
+        .catch((err) => {
+          setError(err);
+          setFetchState("ERROR");
+        })
         .finally(() => {
-          console.log(books);
-          setLoading(false);
+          console.log(books && books, "-- books");
         });
     }
   }, [query]);
 
   return (
     <>
-      {loading && <p>Loading...</p>}
-      {!loading && error && <p>{error.message}</p>}
-      {!loading && books && <BookList books={books} />}
+      <SearchResult>
+        {fetchState === "LOADING" && <Loading />}
+        {fetchState === "SUCCESS" && books && <BookList />}
+      </SearchResult>
+      {fetchState === "ERROR" && error && (
+        <ErrorMessage errorMsg={error.message} />
+      )}
     </>
   );
 };

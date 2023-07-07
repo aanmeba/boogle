@@ -1,0 +1,24 @@
+@use "../../../styles/common/theme" as theme;
+.details {
+  &_rating {
+    display: flex;
+    align-items: center;
+    color: theme.$dark-navy-2;
+
+    &_num {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+.icons {
+  &_rating {
+    display: flex;
+    align-items: center;
+
+    &_num {
+      font-size: 0.95rem;
+      order: 1;
+    }
+  }
+}

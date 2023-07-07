@@ -1,0 +1,25 @@
+@use "../../styles/common/mixins" as mixins;
+@use "../../styles/common/theme" as t;
+
+.container {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+
+  margin-top: 2rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+
+  cursor: pointer;
+
+  @include mixins.book-content(0.9rem);
+
+  .details {
+    align-items: flex-start;
+    font-size: 0.7rem;
+
+    &_title {
+      font-weight: bold;
+    }
+  }
+}

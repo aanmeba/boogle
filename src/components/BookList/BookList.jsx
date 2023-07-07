@@ -1,12 +1,17 @@
+import { useContext } from "react";
 import BookCard from "../BookCard/BookCard";
+import { BooksContext } from "../../context/BooksContext";
 
-const BookList = ({ books }) => {
-  console.log(books, books.length, "---- bookList");
+const BookList = () => {
+  const { books } = useContext(BooksContext);
+
   return (
-    <section>
+    <>
       {books.length > 0 &&
-        books.map((book) => <BookCard key={book.id} book={book} />)}
-    </section>
+        books.map((book) => {
+          return <BookCard key={book.id} book={book} />;
+        })}
+    </>
   );
 };
 
