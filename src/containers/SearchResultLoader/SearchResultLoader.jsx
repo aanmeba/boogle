@@ -30,7 +30,8 @@ const SearchResultLoader = () => {
 
   return (
     <>
-      {fetchState === "LOADING" && <p>Loading...</p>}
+      {/* {fetchState === "LOADING" && <p>Loading...</p>} */}
+      {fetchState === "LOADING" && <BookList fetchState={fetchState} />}
       {fetchState === "ERROR" && error && <p>{error.message}</p>}
       {fetchState === "SUCCESS" && books && <BookList />}
     </>
