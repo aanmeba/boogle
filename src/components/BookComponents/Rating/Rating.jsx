@@ -1,22 +1,21 @@
-// import {StarIcon, StarOutlineIcon} from "@mui/icons-material";
 import StarIcon from "@mui/icons-material/Star";
-import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import styles from "./Rating.module.scss";
 
-const Rating = ({ averageRating }) => {
+const Rating = ({ averageRating, isList }) => {
   return (
     <>
       {averageRating ? (
-        <div className={styles.details_rating}>
-          <StarIcon sx={{ color: "#ffea00" }} />
-          <p className={styles.details_rating_num}>{averageRating}</p>
+        <div className={isList ? styles.details_rating : styles.icons_rating}>
+          <StarIcon sx={{ fontSize: isList ? "small" : "medium" }} />
+          <span
+            className={
+              isList ? styles.details_rating_num : styles.icons_rating_num
+            }
+          >
+            {averageRating}
+          </span>
         </div>
-      ) : (
-        <div className={styles.details_rating}>
-          <StarOutlineIcon />
-          <p className={styles.details_rating_text}>No rating available</p>
-        </div>
-      )}
+      ) : null}
     </>
   );
 };

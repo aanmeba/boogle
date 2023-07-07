@@ -1,4 +1,6 @@
+@use "./styles/common/theme" as theme;
 .main {
   width: 70%;
   margin: 0 auto;
+  color: theme.$darker;
 }

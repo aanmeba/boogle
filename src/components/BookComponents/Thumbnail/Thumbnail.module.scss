@@ -3,7 +3,9 @@
 .pics {
   margin: 0;
   &_img {
-    width: 200px;
+    width: 120px;
+    border-radius: 0.2rem;
+    box-shadow: 9px 9px 15px rgba(0, 0, 0, 0.2);
   }
   &_hidden {
     display: none;

@@ -28,8 +28,8 @@ export const formatePublishedDate = (str) => {
     "December",
   ];
   if (str.includes("-")) {
-    const [year, month, date] = str.split("-");
-    return [date, months[+month - 1], year].join(" ");
+    const [year, month] = str.split("-");
+    return [months[+month - 1], year].join(" ");
   }
   return str;
 };
@@ -45,4 +45,10 @@ export const printAuthors = (array) => {
       i === 0 ? author : i === arr.length - 1 ? `and ${author}` : `, ${author}`
     )
     .join(" ");
+};
+
+export const handleReviews = (num) => {
+  let str = "";
+  num / 1000 > 1 ? (str += (num / 1000).toFixed(2) + "k") : (str += num);
+  return num > 0 ? (str += ` reviews`) : ` review`;
 };

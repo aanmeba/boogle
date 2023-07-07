@@ -2,11 +2,16 @@ import { useContext, useEffect, useState } from "react";
 import { searchBooks } from "../../services/books-services";
 import BookList from "../../components/BookList/BookList";
 import { SearchQueryContext } from "../../context/SearchQueryContextProvider";
+import Loading from "../../components/Loading/Loading";
+import SearchResult from "../../components/SearchResult/SearchResult";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { BooksContext } from "../../context/BooksContext";
+// import BookContextProvider from "../../context/BookContextProvider";
 
 const SearchResultLoader = () => {
   const { query } = useContext(SearchQueryContext);
   const { books, setBooks } = useContext(BooksContext);
+  // const [books, setBooks] = useState([]);
 
   const [error, setError] = useState(false);
   const [fetchState, setFetchState] = useState("LOADING");
@@ -30,10 +35,13 @@ const SearchResultLoader = () => {
 
   return (
     <>
-      {/* {fetchState === "LOADING" && <p>Loading...</p>} */}
-      {fetchState === "LOADING" && <BookList fetchState={fetchState} />}
-      {fetchState === "ERROR" && error && <p>{error.message}</p>}
-      {fetchState === "SUCCESS" && books && <BookList />}
+      <SearchResult>
+        {fetchState === "LOADING" && <Loading />}
+        {fetchState === "SUCCESS" && books && <BookList />}
+      </SearchResult>
+      {fetchState === "ERROR" && error && (
+        <ErrorMessage errorMsg={error.message} />
+      )}
     </>
   );
 };

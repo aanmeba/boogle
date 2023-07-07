@@ -1,47 +1,21 @@
 @use "../../styles/common/mixins" as mixins;
+@use "../../styles/common/theme" as theme;
 
 .container {
   @include mixins.flex-column(2rem);
-  // display: flex;
-  // flex-direction: column;
-
-  // gap: 2rem;
   width: 100%;
-
   overflow-y: scroll;
+
+  font-family: "Montserrat", sans-serif;
 
   &_header {
     display: flex;
     gap: 2rem;
-    // flex-wrap: wrap;
 
-    @include mixins.book_content(200px, 1.5rem);
+    @include mixins.book_content(1.5rem);
 
-    .pics {
-      // margin: 0;
-      &_img {
-        // width: 200px;
-
-        &_hidden {
-          display: none;
-        }
-      }
-    }
     .details {
-      // display: flex;
-      // flex-direction: column;
-
-      // &_title {
-      //   font-size: 1.5rem;
-      // }
-
       &_subtitle {
-        color: gray;
-      }
-
-      &_publisher,
-      &_publishedDate {
-        font-size: 0.7rem;
         color: gray;
       }
     }
@@ -49,19 +23,15 @@
 
   &_body {
     @include mixins.flex-column();
-    // display: flex;
-    // flex-direction: column;
-    // gap: 1rem;
-
-    // overflow-y: scroll;
 
     box-sizing: border-box;
 
     &_desc {
-      font-size: 0.9rem;
-    }
-
-    &_link {
+      font-size: 0.8rem;
+      &_empty {
+        font-size: 0.8rem;
+        color: theme.$gray;
+      }
     }
   }
 }

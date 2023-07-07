@@ -1,5 +1,26 @@
+import { NavLink, useLocation } from "react-router-dom";
+import styles from "./Title.module.scss";
+
 const Title = () => {
-  return <h1>Boogle</h1>;
+  const location = useLocation();
+
+  const handleClick = (e) => {
+    if (location.pathname === "/") {
+      e.preventDefault();
+    }
+  };
+  return (
+    <>
+      <NavLink
+        to="/"
+        onClick={handleClick}
+        style={{ textDecoration: "none" }}
+        disabled={location.pathname === "/"}
+      >
+        <h1 className={styles.title}>Boogle</h1>
+      </NavLink>
+    </>
+  );
 };
 
 export default Title;

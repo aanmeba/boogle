@@ -1,34 +1,39 @@
 import Rating from "../Rating/Rating";
 import BookOutlinedIcon from "@mui/icons-material/BookOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import styles from "./IconsGroup.module.scss";
+import { handleReviews } from "../../../helpers/helpers";
 
-const IconsGroup = ({ isEbook, pageCount, averageRating, buyLink }) => {
+const IconsGroup = ({ isEbook, pageCount, averageRating, ratingsCount }) => {
   console.log(isEbook, pageCount, averageRating);
+  // ratingsCount
   return (
-    <div className={styles.icons_group}>
-      <Rating averageRating={averageRating} />
-      {isEbook ? (
-        <div className={styles.icons}>
-          <BookOutlinedIcon />
-          <span>eBook</span>
-        </div>
-      ) : null}
-      {pageCount ? (
-        <div className={styles.icons}>
-          <span>{pageCount}</span>
-          <span>Pages</span>
-        </div>
-      ) : null}
-      {buyLink ? (
-        <div className={styles.icons}>
-          <a href={buyLink} rel="noreferrer" target="_blank">
-            <ShoppingCartOutlinedIcon />
-          </a>
-          {/* <span>get one</span> */}
-        </div>
-      ) : null}
-    </div>
+    <>
+      <div className={styles.icons_group}>
+        {averageRating ? (
+          <div className={styles.icons}>
+            <Rating averageRating={averageRating} ratingsCount={ratingsCount} />
+            <span className={styles.details_rating_num}>
+              {handleReviews(ratingsCount)}
+            </span>
+          </div>
+        ) : null}
+
+        {isEbook ? (
+          <div className={styles.icons}>
+            <BookOutlinedIcon
+              sx={{ fontSize: "large", paddingTop: "0.2rem" }}
+            />
+            <span>eBook</span>
+          </div>
+        ) : null}
+        {isEbook && pageCount ? (
+          <div className={styles.icons}>
+            <span className={styles.icons_pages}>{pageCount}</span>
+            <span>Pages</span>
+          </div>
+        ) : null}
+      </div>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { SearchQueryContext } from "../../context/SearchQueryContextProvider";
+import SearchIcon from "@mui/icons-material/Search";
 import styles from "./SearchBar.module.scss";
 
 const SearchBar = () => {
@@ -12,6 +13,7 @@ const SearchBar = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     handleSubmit(input);
+    setInput("");
   };
   return (
     <form onSubmit={onSubmit} className={styles.form}>
@@ -22,8 +24,11 @@ const SearchBar = () => {
         value={input}
         onChange={onChange}
         className={styles.input}
+        placeholder="Search..."
       />
-      <button className={styles.button}>Search</button>
+      <button className={styles.button}>
+        <SearchIcon sx={{ height: "100%", color: "gray" }} />
+      </button>
     </form>
   );
 };

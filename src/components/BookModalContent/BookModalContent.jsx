@@ -1,10 +1,14 @@
-import { formatePublishedDate, printAuthors } from "../../helpers/helpers";
+import Authors from "../BookComponents/Authors/Authors";
+import IconsGroup from "../BookComponents/IconsGroup/IconsGroup";
+import PublishingInfo from "../BookComponents/PublishingInfo/PublishingInfo";
+import Thumbnail from "../BookComponents/Thumbnail/Thumbnail";
+import Categories from "../BookComponents/Categories/Categories";
+import DescriptionTitle from "../BookComponents/DescriptionTitle/DescriptionTitle";
 import styles from "./BookModalContent.module.scss";
-import StarIcon from "@mui/icons-material/Star";
 
 const BookModalContent = ({ book }) => {
   const {
-    saleInfo: { buyLink },
+    saleInfo: { isEbook },
     volumeInfo: {
       authors,
       averageRating,
@@ -16,74 +20,42 @@ const BookModalContent = ({ book }) => {
       publishedDate,
       title,
       subtitle,
+      pageCount,
+      ratingsCount = 0,
     },
   } = book;
 
   return (
-    <>
-      <article className={styles.container}>
-        <section className={styles.container_header}>
-          <figure className={styles.pics}>
-            {thumbnail ? (
-              <img className={styles.pics_img} src={thumbnail} alt={title} />
-            ) : (
-              <div className={styles.pics_img_hidden}></div>
-            )}
-          </figure>
+    <article className={styles.container}>
+      <section className={styles.container_header}>
+        <Thumbnail thumbnail={thumbnail} title={title} isList={false} />
 
-          <div className={styles.details}>
-            <h3 className={styles.details_title}>{title}</h3>
-            {subtitle && (
-              <h4 className={styles.details_subtitle}>{subtitle}</h4>
-            )}
-            {authors && (
-              <p className={styles.details_authors}>{printAuthors(authors)}</p>
-            )}
-            {averageRating && (
-              <>
-                <StarIcon />
-                <p className={styles.details_rating}>{averageRating}</p>
-              </>
-            )}
+        <div className={styles.details}>
+          <h3 className={styles.details_title}>{title}</h3>
+          {subtitle && <h4 className={styles.details_subtitle}>{subtitle}</h4>}
+          <Authors authors={authors} />
+          <PublishingInfo publishedDate={publishedDate} publisher={publisher} />
 
-            {buyLink && (
-              <a href={buyLink} rel="noreferrer" target="_blank">
-                Buy
-              </a>
-            )}
-
-            {publisher && (
-              <p className={styles.details_publisher}>
-                Published by {publisher}
-              </p>
-            )}
-            {publishedDate && (
-              <p className={styles.details_publishedDate}>
-                {formatePublishedDate(publishedDate)}
-              </p>
-            )}
-
-            {categories &&
-              categories.map((c, i) => (
-                <p key={i} className={styles.details_categories}>
-                  {c}
-                </p>
-              ))}
-          </div>
-        </section>
-        <section className={styles.container_body}>
-          <h4>Description</h4>
-          {description && (
-            <p className={styles.container_body_desc}>{description}</p>
-          )}
-          {infoLink && (
-            <a className={styles.container_body_link} href={infoLink}>
-              Read More
-            </a>
-          )}
-        </section>
-      </article>
-    </>
+          <IconsGroup
+            averageRating={averageRating}
+            isEbook={isEbook}
+            pageCount={pageCount}
+            ratingsCount={ratingsCount}
+          />
+          <Categories categories={categories} />
+        </div>
+      </section>
+      <section className={styles.container_body}>
+        <DescriptionTitle infoLink={infoLink} />
+        {description ? (
+          <p className={styles.container_body_desc}>{description}</p>
+        ) : (
+          <p className={styles.container_body_desc_empty}>
+            Description is not available
+          </p>
+        )}
+      </section>
+    </article>
   );
 };
 
