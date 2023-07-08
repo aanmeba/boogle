@@ -1,6 +1,6 @@
 @use "../../../styles/common/theme" as theme;
 .details {
-  &_authors {
-    color: theme.$dark-navy-2;
+  &__authors {
+    color: theme.$text-sub;
   }
 }

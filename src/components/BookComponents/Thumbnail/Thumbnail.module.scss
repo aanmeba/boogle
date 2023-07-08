@@ -2,12 +2,12 @@
 
 .pics {
   margin: 0;
-  &_img {
+  &__img {
     width: 120px;
     border-radius: 0.2rem;
     box-shadow: 9px 9px 15px rgba(0, 0, 0, 0.2);
   }
-  &_hidden {
+  &__hidden {
     display: none;
   }
 }
@@ -18,13 +18,13 @@
   display: flex;
   justify-content: center;
 
-  &_img {
+  &__img {
     display: block;
 
     border-radius: 0.7rem;
     margin-bottom: 0.5rem;
 
-    &_placeholder {
+    &__placeholder {
       border-radius: 0.7rem;
       margin-bottom: 0.5rem;
       width: 100%;

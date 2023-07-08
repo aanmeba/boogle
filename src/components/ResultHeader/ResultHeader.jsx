@@ -6,11 +6,11 @@ const ResultHeader = () => {
   const { query } = useContext(SearchQueryContext);
   return (
     <div className={styles.wrapper}>
-      <div className={styles.wrapper_results}>
+      <div className={styles.wrapper__results}>
         <p>Search results for</p>
         <h2>{query}</h2>
       </div>
-      <div className={styles.wrapper_pagenation}></div>
+      <div className={styles.wrapper__pagenation}></div>
     </div>
   );
 };
