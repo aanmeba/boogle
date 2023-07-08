@@ -1,15 +1,15 @@
 @use "../../../styles/common/theme" as theme;
 
 .details {
-  &_categories {
-    &_item {
+  &__categories {
+    &__item {
       display: inline;
       padding: 0.3rem 0.5rem;
-      border: 1px solid theme.$highlighter;
+      border: 1px solid theme.$text-extra;
       border-radius: 1rem;
-      color: theme.$highlighter;
+      color: theme.$text-extra;
       font-size: 0.6rem;
     }
-    margin: 1rem 0;
+    // margin: 1rem 0;
   }
 }

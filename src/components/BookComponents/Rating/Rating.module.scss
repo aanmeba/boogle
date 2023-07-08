@@ -1,24 +1,30 @@
 @use "../../../styles/common/theme" as theme;
 .details {
-  &_rating {
+  &__rating {
     display: flex;
     align-items: center;
-    color: theme.$dark-navy-2;
+    color: theme.$text-extra;
 
-    &_num {
+    &__num {
       font-size: 0.7rem;
+      padding-top: 0.1rem;
     }
   }
 }
 
 .icons {
-  &_rating {
+  &__rating {
     display: flex;
     align-items: center;
 
-    &_num {
-      font-size: 0.95rem;
+    svg {
       order: 1;
+    }
+
+    &__num {
+      font-size: 0.95rem;
+      padding-top: 0.15rem;
+      order: 0;
     }
   }
 }

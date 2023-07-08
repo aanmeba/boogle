@@ -10,12 +10,12 @@ const Authors = ({ authors, isList }) => {
     <>
       {authors && isList ? (
         authors.length > 1 ? (
-          <p className={styles.details_authors}>{` ${authors[0]} and more`}</p>
+          <p className={styles.details__authors}>{` ${authors[0]} and more`}</p>
         ) : (
-          <p className={styles.details_authors}>{authors[0]}</p>
+          <p className={styles.details__authors}>{authors[0]}</p>
         )
       ) : authors ? (
-        <p className={styles.details_authors}>{printAuthors(authors)}</p>
+        <p className={styles.details__authors}>{printAuthors(authors)}</p>
       ) : null}
     </>
   );
