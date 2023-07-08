@@ -24,7 +24,12 @@ html {
 
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Inter", sans-serif; */
+  /* font-family: "Montserrat", sans-serif; */
+  /* font-family: "Open Sans", sans-serif; */
+  /* font-family: "Raleway", sans-serif; */
+  font-family: "Roboto", sans-serif;
+  transition: 0.2s;
 }
 
 /**

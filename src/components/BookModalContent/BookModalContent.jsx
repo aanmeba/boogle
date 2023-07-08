@@ -27,12 +27,16 @@ const BookModalContent = ({ book }) => {
 
   return (
     <article className={styles.container}>
-      <section className={styles.container_header}>
+      <section className={styles.container__header}>
         <Thumbnail thumbnail={thumbnail} title={title} isList={false} />
 
         <div className={styles.details}>
-          <h3 className={styles.details_title}>{title}</h3>
-          {subtitle && <h4 className={styles.details_subtitle}>{subtitle}</h4>}
+          <div className={styles.details__titles}>
+            <h3 className={styles.details__titles__title}>{title}</h3>
+            {subtitle && (
+              <h4 className={styles.details__titles__subtitle}>{subtitle}</h4>
+            )}
+          </div>
           <Authors authors={authors} />
           <PublishingInfo publishedDate={publishedDate} publisher={publisher} />
 
@@ -45,12 +49,12 @@ const BookModalContent = ({ book }) => {
           <Categories categories={categories} />
         </div>
       </section>
-      <section className={styles.container_body}>
+      <section className={styles.container__body}>
         <DescriptionTitle infoLink={infoLink} />
         {description ? (
-          <p className={styles.container_body_desc}>{description}</p>
+          <p className={styles.container__body__desc}>{description}</p>
         ) : (
-          <p className={styles.container_body_desc_empty}>
+          <p className={styles.container__body__desc__empty}>
             Description is not available
           </p>
         )}

@@ -23,10 +23,10 @@ const SearchBar = () => {
         id="search"
         value={input}
         onChange={onChange}
-        className={styles.input}
+        className={styles.form__input}
         placeholder="Search..."
       />
-      <button className={styles.button}>
+      <button className={styles.form__button}>
         <SearchIcon sx={{ height: "100%", color: "gray" }} />
       </button>
     </form>

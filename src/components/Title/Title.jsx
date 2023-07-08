@@ -17,7 +17,7 @@ const Title = () => {
         style={{ textDecoration: "none" }}
         disabled={location.pathname === "/"}
       >
-        <h1 className={styles.title}>Boogle</h1>
+        <h1 className={styles.title}>Boogle_</h1>
       </NavLink>
     </>
   );
