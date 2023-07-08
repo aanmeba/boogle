@@ -1,4 +1,4 @@
-.icons_group {
+.icons__group {
   display: flex;
   // gap: 1rem;
   font-size: 0.6rem;
@@ -27,8 +27,9 @@
     padding: 0 1rem;
   }
 
-  &_pages {
+  &__pages {
     font-size: 0.95rem;
+    padding-top: 0.15rem;
   }
 
   // &_rating {

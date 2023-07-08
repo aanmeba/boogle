@@ -8,11 +8,11 @@ const IconsGroup = ({ isEbook, pageCount, averageRating, ratingsCount }) => {
   // ratingsCount
   return (
     <>
-      <div className={styles.icons_group}>
+      <div className={styles.icons__group}>
         {averageRating ? (
           <div className={styles.icons}>
             <Rating averageRating={averageRating} ratingsCount={ratingsCount} />
-            <span className={styles.details_rating_num}>
+            <span className={styles.details__rating__num}>
               {handleReviews(ratingsCount)}
             </span>
           </div>
@@ -28,7 +28,7 @@ const IconsGroup = ({ isEbook, pageCount, averageRating, ratingsCount }) => {
         ) : null}
         {isEbook && pageCount ? (
           <div className={styles.icons}>
-            <span className={styles.icons_pages}>{pageCount}</span>
+            <span className={styles.icons__pages}>{pageCount}</span>
             <span>Pages</span>
           </div>
         ) : null}

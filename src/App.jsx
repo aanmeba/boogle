@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import styles from "./App.module.scss";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           </Routes>
         </SearchQueryContextProvider>
       </BrowserRouter>
+      <Footer />
     </main>
   );
 }
