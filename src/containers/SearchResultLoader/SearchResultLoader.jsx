@@ -6,19 +6,18 @@ import Loading from "../../components/Loading/Loading";
 import SearchResult from "../../components/SearchResult/SearchResult";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { BooksContext } from "../../context/BooksContext";
-// import BookContextProvider from "../../context/BookContextProvider";
 
 const SearchResultLoader = () => {
   const { query } = useContext(SearchQueryContext);
   const { books, setBooks } = useContext(BooksContext);
-  // const [books, setBooks] = useState([]);
+  const { searchTerm, page, maxResults } = query;
 
   const [error, setError] = useState(false);
   const [fetchState, setFetchState] = useState("LOADING");
 
   useEffect(() => {
-    if (query) {
-      searchBooks(query)
+    if (searchTerm) {
+      searchBooks(searchTerm, page, maxResults)
         .then((data) => {
           setBooks(data);
           setFetchState("SUCCESS");
@@ -26,12 +25,9 @@ const SearchResultLoader = () => {
         .catch((err) => {
           setError(err);
           setFetchState("ERROR");
-        })
-        .finally(() => {
-          console.log(books && books, "-- books");
         });
     }
-  }, [query]);
+  }, [searchTerm, page, maxResults]);
 
   return (
     <>

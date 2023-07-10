@@ -1,4 +1,5 @@
 @use "../../../styles/common/mixins";
+@use "../../../styles/common/theme" as theme;
 
 .pics {
   margin: 0;
@@ -10,9 +11,13 @@
   &__hidden {
     display: none;
   }
+
+  @include mixins.smaller-than-small {
+    margin: 0 auto;
+  }
 }
 
-.pics_list {
+.pics__list {
   @include mixins.thumbnail(100%);
   width: 100%;
   display: flex;
@@ -20,6 +25,7 @@
 
   &__img {
     display: block;
+    width: 100%;
 
     border-radius: 0.7rem;
     margin-bottom: 0.5rem;
@@ -29,7 +35,13 @@
       margin-bottom: 0.5rem;
       width: 100%;
       height: 200px;
-      @include mixins.light-gray-bg(0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba(theme.$light-gray, 0.5);
+      color: rgba(theme.$light-gray, 0.5);
+
+      // @include mixins.light-gray-bg(0.5);
     }
 
     &:hover {

@@ -5,12 +5,11 @@
   @include mixins.flex-column(2rem);
   width: 100%;
   overflow-y: scroll;
-
-  // font-family: "Inter", sans-serif;
-  // font-family: "Montserrat", sans-serif;
-  // font-family: "Open Sans", sans-serif;
-  // font-family: "Raleway", sans-serif;
   font-family: "Roboto", sans-serif;
+
+  @include mixins.medium {
+    min-width: 350px;
+  }
 
   &__header {
     display: flex;
@@ -26,10 +25,17 @@
         }
         &__subtitle {
           color: theme.$text-sub;
-          font-size: 1.2rem;
+          font-size: 1rem;
         }
       }
     }
+
+    @include mixins.smaller-than-small {
+      flex-direction: column;
+    }
+    // @include mixins.extra-small {
+    //   flex-direction: column;
+    // }
   }
 
   &__body {

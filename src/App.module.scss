@@ -1,6 +1,9 @@
 @use "./styles/common/theme" as theme;
+@use "./styles/common/mixins";
+
 .main {
-  width: 70%;
+  max-width: 1200px;
   margin: 0 auto;
   color: theme.$text;
+  padding: 0 2rem;
 }

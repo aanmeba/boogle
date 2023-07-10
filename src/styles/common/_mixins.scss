@@ -13,7 +13,7 @@
 @mixin thumbnail($imgWidth) {
   margin: 0;
 
-  &_img {
+  &__img {
     width: $imgWidth;
   }
 }
@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
 
-    &_title {
+    &__title {
       font-size: $titleSize;
     }
   }
@@ -47,6 +47,20 @@ $md: 800px;
 // 481px - 767px
 @mixin medium {
   @media only screen and (min-width: ($sm + 1px)) and (max-width: $md) {
+    @content;
+  }
+}
+
+// 0 - 550
+@mixin smaller-than-small {
+  @media only screen and (max-width: ($sm)) {
+    @content;
+  }
+}
+
+// 0 - 800
+@mixin smaller-than-desktop {
+  @media only screen and (max-width: ($md)) {
     @content;
   }
 }
