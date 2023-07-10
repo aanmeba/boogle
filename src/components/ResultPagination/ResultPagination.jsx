@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SearchQueryContext } from "../../context/SearchQueryContextProvider";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -21,22 +21,22 @@ const ResultPagination = () => {
     } else {
       setCurrentPage(currentPage + 1);
     }
-
-    console.log("currentPage", currentPage);
-    handleInputs({ page: currentPage });
   };
+
+  useEffect(() => {
+    handleInputs({ page: currentPage });
+  }, [currentPage]);
 
   return (
     <section className={styles.container}>
       <IconButton
         onClick={handleButtonClick}
         id="prev"
-        // disabled
         disabled={currentPage === 1}
       >
         <NavigateBeforeIcon />
       </IconButton>
-      <span>Page {currentPage}</span>
+      <span className={styles.current}>Page {currentPage}</span>
 
       <IconButton onClick={handleButtonClick} id="next">
         <NavigateNextIcon />

@@ -7,7 +7,7 @@ const SearchQueryContextProvider = ({ children }) => {
   const [query, setQuery] = useState({
     searchTerm: "",
     page: 1,
-    maxResult: 15,
+    maxResults: 10,
   });
 
   const navigate = useNavigate();

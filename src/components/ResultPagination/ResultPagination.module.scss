@@ -3,3 +3,7 @@
 .container {
   @include mixins.flex-centered();
 }
+
+.current {
+  padding: 1rem;
+}
