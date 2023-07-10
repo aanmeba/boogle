@@ -3,6 +3,7 @@ import { useState } from "react";
 import BookDetails from "../BookDetails/BookDetails";
 import BookModalContent from "../BookModalContent/BookModalContent";
 import { Modal, ModalDialog } from "@mui/joy";
+// import { createPortal } from "react-dom";
 
 const BookCard = ({ book }) => {
   const [isClicked, setIsClicked] = useState(false);
@@ -11,7 +12,7 @@ const BookCard = ({ book }) => {
   const onClick = () => {
     setIsClicked(!isClicked);
     setIsOpen(!isOpen);
-    console.log(isClicked);
+    // console.log(isClicked);
   };
 
   // need to handle each el has value and then render them
@@ -19,6 +20,7 @@ const BookCard = ({ book }) => {
     <>
       <BookDetails onClick={onClick} book={book} />
       {isClicked && (
+        // createPortal(<BookModalContent book={book} />, document.body)
         <Modal
           open={isOpen}
           onClose={onClick}

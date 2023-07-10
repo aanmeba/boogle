@@ -3,6 +3,7 @@
 .container {
   gap: 2rem;
   column-count: 4;
+  // background-color: lightcoral;
 
   @include mixins.medium {
     column-count: 3;

@@ -5,17 +5,20 @@ import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import styles from "./App.module.scss";
 import Footer from "./components/Footer/Footer";
+import ErrorContextProvider from "./context/ErrorContextProvider";
 
 function App() {
   return (
     <main className={styles.main}>
       <BrowserRouter>
         <SearchQueryContextProvider>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/results" element={<SearchResultPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+          <ErrorContextProvider>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/results" element={<SearchResultPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </ErrorContextProvider>
         </SearchQueryContextProvider>
       </BrowserRouter>
       <Footer />

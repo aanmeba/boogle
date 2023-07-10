@@ -4,43 +4,51 @@ import BookList from "../../components/BookList/BookList";
 import { SearchQueryContext } from "../../context/SearchQueryContextProvider";
 import Loading from "../../components/Loading/Loading";
 import SearchResult from "../../components/SearchResult/SearchResult";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import { BooksContext } from "../../context/BooksContext";
-// import BookContextProvider from "../../context/BookContextProvider";
+import AlertMessage from "../../components/AlertMessage/AlertMessage";
+import { BooksContext } from "../../context/BooksContextProvider";
+import { ErrorContext } from "../../context/ErrorContextProvider";
 
 const SearchResultLoader = () => {
   const { query } = useContext(SearchQueryContext);
   const { books, setBooks } = useContext(BooksContext);
-  // const [books, setBooks] = useState([]);
+  const { error, setError } = useContext(ErrorContext);
 
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
+  const { searchTerm, page, maxResults } = query;
+
   const [fetchState, setFetchState] = useState("LOADING");
 
   useEffect(() => {
-    if (query) {
-      searchBooks(query)
+    if (!searchTerm) {
+      setFetchState("LOADING");
+      setError({ message: "Please enter keywords you're looking for" });
+    }
+
+    if (searchTerm) {
+      searchBooks(searchTerm, page, maxResults)
         .then((data) => {
           setBooks(data);
           setFetchState("SUCCESS");
+          setError(false);
         })
         .catch((err) => {
           setError(err);
           setFetchState("ERROR");
-        })
-        .finally(() => {
-          console.log(books && books, "-- books");
         });
     }
-  }, [query]);
+  }, [searchTerm, page, maxResults]);
 
   return (
     <>
+      {fetchState === "LOADING" && !searchTerm && (
+        <AlertMessage alertMsg={error.message} severity="warning" />
+      )}
       <SearchResult>
         {fetchState === "LOADING" && <Loading />}
         {fetchState === "SUCCESS" && books && <BookList />}
       </SearchResult>
       {fetchState === "ERROR" && error && (
-        <ErrorMessage errorMsg={error.message} />
+        <AlertMessage alertMsg={error.message} severity="error" />
       )}
     </>
   );

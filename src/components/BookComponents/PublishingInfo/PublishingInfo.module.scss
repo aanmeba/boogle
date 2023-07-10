@@ -2,7 +2,7 @@
 
 .details {
   &__publish {
-    font-size: 0.7rem;
+    font-size: theme.$smaller_text;
     color: theme.$text-extra;
   }
 }
