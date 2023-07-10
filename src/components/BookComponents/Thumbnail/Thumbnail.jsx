@@ -21,7 +21,9 @@ const Thumbnail = ({ thumbnail, title, isList }) => {
             alt={title}
           />
         ) : (
-          <div className={styles.pics__list__img__placeholder}></div>
+          <div className={styles.pics__list__img__placeholder}>
+            No thumbnail available
+          </div>
         )}
       </figure>
     </>

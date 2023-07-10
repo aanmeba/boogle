@@ -1,34 +1,21 @@
 $border-radius: 0.7rem;
-$light-gray: rgb(29, 30, 32);
+$light-gray: rgba(0, 0, 0, 0.2);
 
 $text: #2c1338; // heading, body
 $text-sub: #504157; // sub-heading,
 $text-extra: #9c8ea3; // publishing, categories
 
-// original
-// $yellow: #f9d949;
-// $highlighter: #27e1c1;
-// $darker: #212a3e; // text
-// $dark-navy: #2a2f4f;
-// $dark-navy-2: #0e2954; // addtional text
-// $milk-navy: #3c486b;
-// $gray: #a7b3bc;
-// $bluish-gray: #dde6ed;
-// $bluish-gray-1: #dde0e1;
-// $bluish-gray-2: #eeeeee;
-// $bluish-gray-3: #f0f0f0;
+// font-size
 
-$yellow: #ffde91;
-$highlighter: #2c1338;
-$darker: #504157; // text
-$dark-navy-2: #0e2954; // addtional text
-$milk-navy: #3c486b;
-$gray: #504157;
-$bluish-gray: #dde6ed;
-$bluish-gray-1: #dde0e1;
-$bluish-gray-2: #eeeeee;
+$title: 3rem;
+$desc_title: 1.3rem;
 
-// $purple: #2c1338;
-// $beige: #fce5db;
-// $yel: #ffde91;
-// $highlighter: #ff8971;
+$list_details: 1rem;
+$modal_subtitle: 1rem;
+
+$icons_number: 0.95rem; // pages, reviews
+
+$modal_desc: 0.8rem; // desc & empty desc
+
+$smaller_text: 0.7rem; // publishing info, rating in booklist, footer
+$extra_small_text: 0.6rem; // categories, icons group

@@ -5,11 +5,11 @@ const Rating = ({ averageRating, isList }) => {
   return (
     <>
       {averageRating ? (
-        <div className={isList ? styles.details__rating : styles.icons_rating}>
+        <div className={isList ? styles.details__rating : styles.icons__rating}>
           <StarIcon sx={{ fontSize: isList ? "small" : "medium" }} />
           <span
             className={
-              isList ? styles.details__rating__num : styles.icons_rating_num
+              isList ? styles.details__rating__num : styles.icons__rating__num
             }
           >
             {averageRating}

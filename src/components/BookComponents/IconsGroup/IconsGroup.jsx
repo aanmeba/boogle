@@ -4,7 +4,7 @@ import styles from "./IconsGroup.module.scss";
 import { handleReviews } from "../../../helpers/helpers";
 
 const IconsGroup = ({ isEbook, pageCount, averageRating, ratingsCount }) => {
-  console.log(isEbook, pageCount, averageRating);
+  // console.log(isEbook, pageCount, averageRating);
   // ratingsCount
   return (
     <>
@@ -12,7 +12,7 @@ const IconsGroup = ({ isEbook, pageCount, averageRating, ratingsCount }) => {
         {averageRating ? (
           <div className={styles.icons}>
             <Rating averageRating={averageRating} ratingsCount={ratingsCount} />
-            <span className={styles.details__rating__num}>
+            <span className={styles.icons__rating__review}>
               {handleReviews(ratingsCount)}
             </span>
           </div>
