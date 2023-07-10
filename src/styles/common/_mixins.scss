@@ -6,8 +6,15 @@
   gap: $gap;
 }
 
-@mixin light-gray-bg($opacity) {
-  background-color: rgba(theme.$light-gray, $opacity);
+@mixin flex-centered() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-align-center() {
+  display: flex;
+  align-items: center;
 }
 
 @mixin thumbnail($imgWidth) {
