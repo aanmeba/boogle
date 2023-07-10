@@ -1,4 +1,4 @@
-@use "../../styles/common/mixins" as mixins;
+@use "../../styles/common/mixins";
 @use "../../styles/common/theme" as theme;
 
 .container {
@@ -25,7 +25,7 @@
         }
         &__subtitle {
           color: theme.$text-sub;
-          font-size: 1rem;
+          font-size: theme.$modal_subtitle;
         }
       }
     }
@@ -33,9 +33,6 @@
     @include mixins.smaller-than-small {
       flex-direction: column;
     }
-    // @include mixins.extra-small {
-    //   flex-direction: column;
-    // }
   }
 
   &__body {
@@ -44,11 +41,10 @@
     box-sizing: border-box;
 
     &__desc {
-      font-size: 0.8rem;
+      font-size: theme.$modal_desc;
       color: theme.$text;
       &__empty {
-        font-size: 0.8rem;
-        // color: theme.$text;
+        font-size: theme.$modal_desc;
       }
     }
   }

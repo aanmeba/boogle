@@ -1,12 +1,13 @@
 @use "../../../styles/common/theme" as theme;
+@use "../../../styles/common/mixins";
+
 .details {
   &__rating {
-    display: flex;
-    align-items: center;
+    @include mixins.flex-align-center();
     color: theme.$text-extra;
 
     &__num {
-      font-size: 0.7rem;
+      font-size: theme.$smaller_text;
       padding-top: 0.1rem;
     }
   }
@@ -14,15 +15,14 @@
 
 .icons {
   &__rating {
-    display: flex;
-    align-items: center;
+    @include mixins.flex-align-center();
 
     svg {
       order: 1;
     }
 
     &__num {
-      font-size: 0.95rem;
+      font-size: theme.$icons_number;
       padding-top: 0.15rem;
       order: 0;
     }

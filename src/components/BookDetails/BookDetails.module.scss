@@ -1,5 +1,5 @@
-@use "../../styles/common/mixins" as mixins;
-@use "../../styles/common/theme" as t;
+@use "../../styles/common/mixins";
+@use "../../styles/common/theme" as theme;
 
 .container {
   display: inline-block;
@@ -16,7 +16,7 @@
 
   .details {
     align-items: flex-start;
-    font-size: 1rem;
+    font-size: theme.$list_details;
 
     &__title {
       font-weight: bold;

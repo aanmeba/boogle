@@ -1,10 +1,10 @@
 @use "../../../styles/common/mixins";
+@use "../../../styles/common/theme" as theme;
 
 .icons__group {
-  display: flex;
-  // gap: 1rem;
-  font-size: 0.6rem;
-  align-items: center;
+  @include mixins.flex-align-center();
+
+  font-size: theme.$extra_small_text;
   width: 100%;
   overflow-x: scroll;
   margin: 1rem 0;
@@ -15,12 +15,13 @@
 }
 
 .icons {
-  display: flex;
+  @include mixins.flex-align-center();
+
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 2.5rem;
   flex-wrap: nowrap;
+  justify-content: space-between;
+
+  height: 2.5rem;
 
   &:nth-of-type(1) {
     padding-right: 1rem;
@@ -38,7 +39,7 @@
   }
 
   &__pages {
-    font-size: 0.95rem;
+    font-size: theme.$icons_number;
     padding-top: 0.15rem;
   }
 }

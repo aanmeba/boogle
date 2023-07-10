@@ -4,7 +4,7 @@ import BookList from "../../components/BookList/BookList";
 import { SearchQueryContext } from "../../context/SearchQueryContextProvider";
 import Loading from "../../components/Loading/Loading";
 import SearchResult from "../../components/SearchResult/SearchResult";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import AlertMessage from "../../components/AlertMessage/AlertMessage";
 import { BooksContext } from "../../context/BooksContext";
 
 const SearchResultLoader = () => {
@@ -27,16 +27,26 @@ const SearchResultLoader = () => {
           setFetchState("ERROR");
         });
     }
+    //  else {
+    //   setFetchState("ERROR");
+    //   setError({ message: "Please enter keywords you're looking for" });
+    // }
   }, [searchTerm, page, maxResults]);
 
   return (
     <>
+      {fetchState === "LOADING" && !searchTerm && (
+        <AlertMessage
+          alertMsg="Please enter keywords you're looking for"
+          severity="warning"
+        />
+      )}
       <SearchResult>
         {fetchState === "LOADING" && <Loading />}
         {fetchState === "SUCCESS" && books && <BookList />}
       </SearchResult>
       {fetchState === "ERROR" && error && (
-        <ErrorMessage errorMsg={error.message} />
+        <AlertMessage alertMsg={error.message} severity="error" />
       )}
     </>
   );
