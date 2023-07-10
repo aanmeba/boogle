@@ -9,9 +9,9 @@ const Footer = () => {
         target="_blank"
         rel="noreferrer"
       >
-        <GitHub />
+        <GitHub sx={{ fontSize: "medium" }} />
       </a>
-      <span>Created by Jungah Ahn 2013</span>
+      <span>Created by Jungah Ahn 2023</span>
     </div>
   );
 };
