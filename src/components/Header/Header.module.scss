@@ -1,0 +1,12 @@
+@use "../../styles/common/mixins";
+
+.container {
+  @include mixins.flex-align-center();
+  justify-content: space-between;
+  padding: 0 0.5rem;
+
+  @include mixins.smaller-than-small {
+    flex-direction: column;
+    transform: scale(0.8);
+  }
+}

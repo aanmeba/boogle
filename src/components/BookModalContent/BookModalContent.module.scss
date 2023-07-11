@@ -1,0 +1,51 @@
+@use "../../styles/common/mixins";
+@use "../../styles/common/theme" as theme;
+
+.container {
+  @include mixins.flex-column(2rem);
+  width: 100%;
+  overflow-y: scroll;
+  font-family: "Roboto", sans-serif;
+
+  @include mixins.medium {
+    min-width: 350px;
+  }
+
+  &__header {
+    display: flex;
+    gap: 2rem;
+
+    @include mixins.book_content(1.5rem);
+
+    .details {
+      &__titles {
+        margin-bottom: 1rem;
+        &__title {
+          color: theme.$text;
+        }
+        &__subtitle {
+          color: theme.$text-sub;
+          font-size: theme.$modal_subtitle;
+        }
+      }
+    }
+
+    @include mixins.smaller-than-small {
+      flex-direction: column;
+    }
+  }
+
+  &__body {
+    @include mixins.flex-column();
+
+    box-sizing: border-box;
+
+    &__desc {
+      font-size: theme.$modal_desc;
+      color: theme.$text;
+      &__empty {
+        font-size: theme.$modal_desc;
+      }
+    }
+  }
+}

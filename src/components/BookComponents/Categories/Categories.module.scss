@@ -1,0 +1,14 @@
+@use "../../../styles/common/theme" as theme;
+
+.details {
+  &__categories {
+    &__item {
+      display: inline;
+      padding: 0.3rem 0.5rem;
+      border: 1px solid theme.$text-extra;
+      border-radius: 1rem;
+      color: theme.$text-extra;
+      font-size: theme.$extra_small_text;
+    }
+  }
+}

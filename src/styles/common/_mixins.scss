@@ -1,0 +1,99 @@
+@use "./theme" as theme;
+
+@mixin flex-column($gap: 1rem) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin flex-centered() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-align-center() {
+  display: flex;
+  align-items: center;
+}
+
+@mixin thumbnail($imgWidth) {
+  margin: 0;
+
+  &__img {
+    width: $imgWidth;
+  }
+}
+
+@mixin book_content($titleSize) {
+  .details {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      font-size: $titleSize;
+    }
+  }
+}
+
+// breakpoints
+$xs: 350px;
+$sm: 550px;
+$md: 800px;
+$lg: 950px;
+
+@mixin extra-small {
+  @media only screen and (max-width: $xs) {
+    @content;
+  }
+}
+@mixin small {
+  @media only screen and (min-width: ($xs + 1px)) and (max-width: $sm) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media only screen and (min-width: ($sm + 1px)) and (max-width: $md) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media only screen and (min-width: ($md + 1px)) and (max-width: $lg) {
+    @content;
+  }
+}
+
+// 0 - 550
+@mixin smaller-than-small {
+  @media only screen and (max-width: ($sm)) {
+    @content;
+  }
+}
+
+// 0 - 800
+@mixin smaller-than-desktop {
+  @media only screen and (max-width: ($md)) {
+    @content;
+  }
+}
+
+@mixin result-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+
+  @include large {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @include medium {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include small {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include extra-small {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

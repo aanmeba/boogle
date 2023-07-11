@@ -1,0 +1,8 @@
+@use "./styles/common/theme" as theme;
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: theme.$text;
+  padding: 0 2rem;
+}

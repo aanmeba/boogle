@@ -1,0 +1,19 @@
+@use "../../../styles/common/theme" as theme;
+@use "../../../styles/common/mixins";
+
+.container {
+  &__body {
+    &__title {
+      @include mixins.flex-align-center();
+
+      gap: 1rem;
+      font-size: theme.$desc_title;
+      color: theme.$text;
+
+      a {
+        @include mixins.flex-align-center();
+        color: theme.$text;
+      }
+    }
+  }
+}

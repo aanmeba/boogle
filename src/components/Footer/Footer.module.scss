@@ -1,0 +1,16 @@
+@use ".././../styles/common/theme" as theme;
+@use ".././../styles/common/mixins";
+
+.footer {
+  @include mixins.flex-centered();
+  flex-direction: column;
+
+  width: 100%;
+  height: 10vh;
+  margin-top: auto;
+  color: theme.$text-extra;
+  font-size: theme.$smaller_text;
+  a:visited {
+    color: theme.$text-extra;
+  }
+}

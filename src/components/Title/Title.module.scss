@@ -1,0 +1,7 @@
+@use "../../styles/common/theme" as theme;
+
+.title {
+  color: theme.$text;
+  font-size: theme.$title;
+  font-family: "Roboto", sans-serif;
+}

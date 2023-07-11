@@ -1,0 +1,8 @@
+@use "../../styles/common/mixins";
+
+.container {
+  @include mixins.flex-column(2rem);
+
+  min-height: 90vh;
+  max-width: 1400px;
+}

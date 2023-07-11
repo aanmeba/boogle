@@ -1,0 +1,51 @@
+@use "../../../styles/common/mixins";
+@use "../../../styles/common/theme" as theme;
+
+.pics {
+  margin: 0;
+  &__img {
+    width: 120px;
+    border-radius: 0.2rem;
+    box-shadow: 9px 9px 15px theme.$light-gray;
+  }
+  &__hidden {
+    display: none;
+  }
+
+  @include mixins.smaller-than-small {
+    margin: 0 auto;
+  }
+}
+
+.pics__list {
+  @include mixins.thumbnail(100%);
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__img {
+    display: block;
+    width: 100%;
+
+    border-radius: theme.$border-radius;
+    margin-bottom: 0.5rem;
+
+    &__placeholder {
+      border-radius: theme.$border-radius;
+      margin-bottom: 0.5rem;
+      padding: 1rem;
+      width: 100%;
+      height: 200px;
+
+      @include mixins.flex-centered();
+
+      border: 1px solid theme.$light-gray;
+      color: theme.$light-gray;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
