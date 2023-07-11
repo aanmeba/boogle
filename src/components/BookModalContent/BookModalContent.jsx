@@ -8,21 +8,18 @@ import styles from "./BookModalContent.module.scss";
 
 const BookModalContent = ({ book }) => {
   const {
-    saleInfo: { isEbook },
-    volumeInfo: {
-      authors,
-      averageRating,
-      categories,
-      description,
-      imageLinks: { thumbnail = "" } = {},
-      infoLink,
-      publisher,
-      publishedDate,
-      title,
-      subtitle,
-      pageCount,
-      ratingsCount = 0,
-    },
+    isEbook,
+    authors,
+    averageRating,
+    description,
+    categories,
+    thumbnail,
+    publishingInfo,
+    infoLink,
+    title,
+    subtitle,
+    pageCount,
+    ratingsCount,
   } = book;
 
   return (
@@ -38,7 +35,7 @@ const BookModalContent = ({ book }) => {
             )}
           </div>
           <Authors authors={authors} />
-          <PublishingInfo publishedDate={publishedDate} publisher={publisher} />
+          <PublishingInfo publishingInfo={publishingInfo} />
 
           <IconsGroup
             averageRating={averageRating}
@@ -51,13 +48,15 @@ const BookModalContent = ({ book }) => {
       </section>
       <section className={styles.container__body}>
         <DescriptionTitle infoLink={infoLink} />
-        {description ? (
-          <p className={styles.container__body__desc}>{description}</p>
-        ) : (
-          <p className={styles.container__body__desc__empty}>
-            Description is not available
-          </p>
-        )}
+        <p
+          className={
+            description
+              ? styles.container__body__desc
+              : styles.container__body__desc__empty
+          }
+        >
+          {description}
+        </p>
       </section>
     </article>
   );
