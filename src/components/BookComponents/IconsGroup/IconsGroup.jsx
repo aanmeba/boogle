@@ -4,8 +4,6 @@ import styles from "./IconsGroup.module.scss";
 import { handleReviews } from "../../../helpers/helpers";
 
 const IconsGroup = ({ isEbook, pageCount, averageRating, ratingsCount }) => {
-  // console.log(isEbook, pageCount, averageRating);
-  // ratingsCount
   return (
     <>
       <div className={styles.icons__group}>
