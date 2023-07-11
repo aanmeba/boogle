@@ -1,0 +1,27 @@
+@use "../../styles/common/mixins";
+@use "../../styles/common/theme" as theme;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  min-height: 250px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+
+  cursor: pointer;
+
+  @include mixins.book-content(0.9rem);
+  .details {
+    min-height: 50px;
+
+    align-items: flex-start;
+    font-size: theme.$list_details;
+
+    &__title {
+      font-weight: bold;
+    }
+  }
+}

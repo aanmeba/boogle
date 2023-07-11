@@ -1,0 +1,6 @@
+@use "../../../styles/common/theme" as theme;
+.details {
+  &__authors {
+    color: theme.$text-sub;
+  }
+}

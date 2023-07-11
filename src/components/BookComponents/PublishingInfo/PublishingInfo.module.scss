@@ -1,0 +1,8 @@
+@use "../../../styles/common/theme" as theme;
+
+.details {
+  &__publish {
+    font-size: theme.$smaller_text;
+    color: theme.$text-extra;
+  }
+}

@@ -1,0 +1,18 @@
+@use "../../styles/common/theme" as theme;
+
+.form {
+  display: flex;
+  height: 2rem;
+
+  &__input {
+    width: 200px;
+    border-radius: theme.$border-radius;
+    border: 1px solid gray;
+    padding: 0 0.7rem;
+  }
+
+  &__button {
+    background-color: transparent;
+    border: 0;
+  }
+}
