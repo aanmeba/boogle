@@ -27,6 +27,7 @@ const SearchBar = () => {
         onChange={onChange}
         className={styles.form__input}
         placeholder="Search..."
+        required
       />
       <button className={styles.form__button}>
         <SearchIcon sx={{ height: "100%", color: "gray" }} />

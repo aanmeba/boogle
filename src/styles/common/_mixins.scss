@@ -40,6 +40,7 @@
 $xs: 350px;
 $sm: 550px;
 $md: 800px;
+$lg: 950px;
 
 @mixin extra-small {
   @media only screen and (max-width: $xs) {
@@ -51,9 +52,15 @@ $md: 800px;
     @content;
   }
 }
-// 481px - 767px
+
 @mixin medium {
   @media only screen and (min-width: ($sm + 1px)) and (max-width: $md) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media only screen and (min-width: ($md + 1px)) and (max-width: $lg) {
     @content;
   }
 }
@@ -69,5 +76,24 @@ $md: 800px;
 @mixin smaller-than-desktop {
   @media only screen and (max-width: ($md)) {
     @content;
+  }
+}
+
+@mixin result-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+
+  @include large {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @include medium {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include small {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include extra-small {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

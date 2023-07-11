@@ -4,14 +4,7 @@ import Thumbnail from "../BookComponents/Thumbnail/Thumbnail";
 import styles from "./BookDetails.module.scss";
 
 const BookDetails = ({ onClick, book }) => {
-  const {
-    volumeInfo: {
-      authors,
-      averageRating,
-      imageLinks: { thumbnail = "" } = {},
-      title,
-    },
-  } = book;
+  const { authors, averageRating, thumbnail, title } = book;
 
   return (
     <article onClick={onClick} className={styles.container}>

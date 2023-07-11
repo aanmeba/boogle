@@ -9,6 +9,5 @@
 }
 
 .container {
-  // ????
   @include mixins.flex-column(2rem);
 }

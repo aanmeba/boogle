@@ -2,7 +2,6 @@ import { formatePublishedDate } from "../../../helpers/helpers";
 import styles from "./PublishingInfo.module.scss";
 
 const PublishingInfo = ({ publishedDate, publisher }) => {
-  // console.log(publishedDate, publisher);
   return (
     <div className={styles.details__publish}>
       {publishedDate && <span>{formatePublishedDate(publishedDate)}</span>}
