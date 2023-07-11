@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import styles from "./ResultHeader.module.scss";
 import { SearchQueryContext } from "../../context/SearchQueryContextProvider";
-// import { ErrorContext } from "../../context/ErrorsContextProvider";
 
 const ResultHeader = () => {
   const { query, handleInputs } = useContext(SearchQueryContext);

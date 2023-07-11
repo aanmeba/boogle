@@ -4,13 +4,18 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { IconButton } from "@mui/material";
 import styles from "./ResultPagination.module.scss";
+import { BooksContext } from "../../context/BooksContextProvider";
+import { findLastPage } from "../../services/books-services";
 
 const ResultPagination = () => {
   const {
-    query: { page },
+    query: { page, maxResults },
     handleInputs,
   } = useContext(SearchQueryContext);
+  const { totalItems } = useContext(BooksContext);
   const [currentPage, setCurrentPage] = useState(page);
+
+  const lastPage = findLastPage(totalItems, maxResults);
 
   const handleButtonClick = (e) => {
     // event delegation - check the currentTarget
@@ -38,7 +43,11 @@ const ResultPagination = () => {
       </IconButton>
       <span className={styles.current}>Page {currentPage}</span>
 
-      <IconButton onClick={handleButtonClick} id="next">
+      <IconButton
+        onClick={handleButtonClick}
+        id="next"
+        disabled={currentPage === lastPage}
+      >
         <NavigateNextIcon />
       </IconButton>
     </section>
