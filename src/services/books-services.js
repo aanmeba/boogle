@@ -29,7 +29,3 @@ export const delay = (data, waitTime) => {
     }, waitTime);
   });
 };
-
-export const findLastPage = (totalItems, maxResults) => {
-  return Math.floor(totalItems / maxResults);
-};
