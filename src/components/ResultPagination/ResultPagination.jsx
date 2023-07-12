@@ -5,7 +5,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { IconButton } from "@mui/material";
 import styles from "./ResultPagination.module.scss";
 import { BooksContext } from "../../context/BooksContextProvider";
-import { findLastPage } from "../../services/books-services";
+import { findLastPage } from "../../helpers/helpers";
 
 const ResultPagination = () => {
   const {
