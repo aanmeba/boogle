@@ -43,9 +43,10 @@ export const handleEscapedChars = (str) => {
 
 export const printAuthors = (array) => {
   let string = "";
+
   array.forEach((author, i, arr) => {
     if (i === 0) string += author;
-    if (i === arr.length - 1) string += ` and ${author}`;
+    else if (i === arr.length - 1) string += ` and ${author}`;
     else {
       string.trim();
       string += `, ${author}`;
@@ -58,7 +59,11 @@ export const printAuthors = (array) => {
 export const handleReviews = (num) => {
   let str = "";
   num / 1000 > 1 ? (str += (num / 1000).toFixed(2) + "k") : (str += num);
-  return num > 0 ? (str += ` reviews`) : ` review`;
+  return num > 1 ? (str += ` reviews`) : (str += ` review`);
+};
+
+export const findLastPage = (totalItems, maxResults) => {
+  return Math.floor(totalItems / maxResults);
 };
 
 export const cleanedData = (book) => {
