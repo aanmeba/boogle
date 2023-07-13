@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import SearchQueryContextProvider from "./context/SearchQueryContextProvider";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
@@ -10,7 +10,7 @@ import ErrorContextProvider from "./context/ErrorContextProvider";
 function App() {
   return (
     <main className={styles.main}>
-      <BrowserRouter>
+      <HashRouter>
         <SearchQueryContextProvider>
           <ErrorContextProvider>
             <Routes>
@@ -20,7 +20,7 @@ function App() {
             </Routes>
           </ErrorContextProvider>
         </SearchQueryContextProvider>
-      </BrowserRouter>
+      </HashRouter>
       <Footer />
     </main>
   );
