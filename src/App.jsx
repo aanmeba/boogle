@@ -15,7 +15,10 @@ function App() {
           <ErrorContextProvider>
             <Routes>
               <Route path="/" element={<LandingPage />} />
-              <Route path="/results" element={<SearchResultPage />} />
+              <Route
+                path="/results/:searchTerm"
+                element={<SearchResultPage />}
+              />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </ErrorContextProvider>

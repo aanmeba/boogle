@@ -19,6 +19,19 @@ Boogle is a simple book search web application that utilises the Google Books AP
 - **Material UI**: Utilised for additional features such as icons, modals, and alert components.
 - **React Router DOM**: Enables client-side routing to create a seamless single-page application experience.
 
-## Things to improve
+## Known issues
 
-- Add test cases, especially for pagination and max results
+- [ ] Hard to manually figure out how the navigating page buttons work at the last result page
+- [x] The Result page doesn't have the corresponding url depending on the search query
+- [ ] The Result page doesn't have the corresponsing url depending on the page
+- [ ] Not able to share the url for the specific search
+
+## Change logs
+
+### 12/07/2023 - Test Cases Added
+
+- Added test cases for helper functions
+
+### 13/08/2023 - Improved Search Experience
+
+- Implemented URL changes corresponding to the search query

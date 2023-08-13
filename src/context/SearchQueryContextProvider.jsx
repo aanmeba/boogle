@@ -17,7 +17,7 @@ const SearchQueryContextProvider = ({ children }) => {
     setQuery({ ...query, [key]: value });
 
     if (key === "searchTerm") {
-      navigate("/results");
+      navigate(`/results/${value}`);
     }
   };
 
