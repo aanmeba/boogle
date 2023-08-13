@@ -10,6 +10,7 @@ export default defineConfig(() => {
       environment: "jsdom",
       setupFiles: "./config/test-setup.js",
     },
+    base: "/",
   };
 
   return config;
