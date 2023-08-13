@@ -2,7 +2,7 @@
 
 Boogle is a simple book search web application that utilises the Google Books API to provide users with book search results and detailed information.
 
-### 👉 [Go to Boogle](https://aanmeba.github.io/boogle/#/)
+### 👉 [Go to Boogle](https://theboogle.netlify.app/#/)
 
 ## Features
 
@@ -25,6 +25,7 @@ Boogle is a simple book search web application that utilises the Google Books AP
 - [x] The Result page doesn't have the corresponding url depending on the search query
 - [ ] The Result page doesn't have the corresponsing url depending on the page
 - [x] Not able to share the url for the specific search
+- [ ] Hash will be added in the url once a search term is entered
 
 ## Change logs
 
